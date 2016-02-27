@@ -12,4 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_castor.mk
+# Inherit AOSP Shinano common device parts
+$(call inherit-product, device/sony/castor/aosp_sgp521.mk)
+
+# Inherit Omni GSM telephony parts
+$(call inherit-product, device/sony/common/radio.mk)
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common_tablet.mk)
+
+# Inherit TWRP requirements
+$(call inherit-product, device/sony/castor_windy/twrp.mk)
+
+# Override Product Name for OmniROM
+PRODUCT_NAME := omni_castor
+PRODUCT_MODEL := Xperia Z2 Tablet 
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := SGP521,castor
