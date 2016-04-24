@@ -15,6 +15,7 @@
 TARGET_KERNEL_CONFIG := aosp_shinano_castor_defconfig
 
 PRODUCT_COPY_FILES := \
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
 # Device Init
 PRODUCT_PACKAGES += \
