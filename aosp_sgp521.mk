@@ -34,6 +34,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     nfc_nci.castor
 
+# Telephony Packages (AOSP)
+PRODUCT_PACKAGES += \
+    InCallUI \
+    Stk
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/castor_windy/aosp_sgp5xx_common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
