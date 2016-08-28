@@ -14,8 +14,13 @@
 
 TARGET_KERNEL_CONFIG := aosp_shinano_castor_defconfig
 
+DEVICE_PACKAGE_OVERLAYS += \
+    device/sony/castor/overlay
+
+# Device Specific Permissions
 PRODUCT_COPY_FILES := \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
 
 # Device Init
 PRODUCT_PACKAGES += \
