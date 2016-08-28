@@ -14,7 +14,12 @@
 
 TARGET_KERNEL_CONFIG := aosp_shinano_castor_defconfig
 
+DEVICE_PACKAGE_OVERLAYS += \
+    device/sony/castor/overlay
+
+# Device Specific Permissions
 PRODUCT_COPY_FILES := \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Device Init
 PRODUCT_PACKAGES += \
@@ -33,6 +38,11 @@ PRODUCT_PACKAGES += \
 # NFC config
 PRODUCT_PACKAGES += \
     nfc_nci.castor
+
+# Telephony Packages (AOSP)
+PRODUCT_PACKAGES += \
+    InCallUI \
+    Stk
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/castor_windy/aosp_sgp5xx_common.mk)
